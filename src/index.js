@@ -36,10 +36,9 @@ function sumWithDefaults(valueA, valueB = 100) {
 
  Пример:
    sumWithDefaults(10) вернет 110
- */
+ 
+Готово!!!
 
-
-/*
  Задание 3:
 
  Функция должна принимать другую функцию и возвращать результат вызова этой функции
@@ -48,7 +47,10 @@ function sumWithDefaults(valueA, valueB = 100) {
    returnFnResult(() => 'привет') вернет 'привет'
  */
 function returnFnResult(fn) {
-}
+  let fun2 = fn();
+
+  return fun2;
+};
 
 /*
  Задание 4:
@@ -63,8 +65,13 @@ function returnFnResult(fn) {
    console.log(f()); // выведет 12
    console.log(f()); // выведет 13
  */
-function returnCounter(number) {
-}
+function returnCounter(number = 0) {
+  let value = number;
+
+  return function () {
+    return value += 1;
+  };
+};
 
 /*
  Задание 5 *:
@@ -76,7 +83,12 @@ function returnCounter(number) {
    returnArgumentsArray(1, 2, 3) вернет [1, 2, 3]
  */
 function returnArgumentsArray() {
-}
+  let a = [];
+  for(let i=0;i<arguments.length;i++){
+    a[i] = arguments[i];
+  }
+  return a;
+};
 
 /*
  Задание 6 *:
@@ -93,8 +105,9 @@ function returnArgumentsArray() {
 
    console.log(newSum()) выведет 6
  */
-function bindFunction(fn) {
-}
+function bindFunction(fn, ...arg) {
+  return function () { return fn(this, ...arg)};
+};
 
 export {
     returnFirstArgument,
